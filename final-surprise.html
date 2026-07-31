@@ -1,35 +1,755 @@
-<div class="card">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Final Surprise ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(-45deg,#ff4d88,#ff78a8,#ffc6da,#fff2f8);
+background-size:400% 400%;
+animation:bgMove 15s ease infinite;
+overflow-x:hidden;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:flex-start;
+padding:60px 20px;
+position:relative;
+}
+
+/* Background Animation */
+
+@keyframes bgMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+/* Intro Screen */
+
+#intro{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(135deg,#ff4d88,#ff82b2,#ffd7e8);
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+color:white;
+
+z-index:9999;
+
+transition:2s;
+
+}
+
+#intro h1{
+
+font-family:'Dancing Script',cursive;
+font-size:65px;
+text-shadow:
+0 0 15px white,
+0 0 35px #ff5d8f;
+
+animation:pulse 2s infinite;
+
+}
+
+#intro p{
+
+font-size:24px;
+margin-top:20px;
+
+}
+
+@keyframes pulse{
+
+50%{
+transform:scale(1.05);
+}
+
+}
+
+/* Glass Card */
+
+.card{
+
+width:90%;
+max-width:850px;
+
+padding:50px;
+
+border-radius:30px;
+
+background:rgba(255,255,255,.16);
+
+backdrop-filter:blur(18px);
+
+box-shadow:
+0 0 35px rgba(255,255,255,.25);
+
+color:white;
+
+z-index:10;
+
+}
+
+/* Heading */
+
+.heading{
+
+font-family:'Dancing Script',cursive;
+
+font-size:60px;
+
+text-align:center;
+
+margin-bottom:35px;
+
+text-shadow:
+0 0 15px white,
+0 0 35px #ff5d8f;
+
+}
+
+/* Letter */
+
+#letter{
+
+white-space:pre-line;
+
+font-size:22px;
+
+line-height:2;
+
+text-align:left;
+
+min-height:700px;
+
+}
+
+/* Ending */
+
+#ending{
+
+display:none;
+
+text-align:center;
+
+margin-top:80px;
+
+animation:endingFade 3s;
+
+}
+
+@keyframes endingFade{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+#ending h1{
+
+font-family:'Dancing Script',cursive;
+
+font-size:80px;
+
+text-shadow:
+
+0 0 15px white,
+
+0 0 35px #ff5d8f,
+
+0 0 70px #ff2d75;
+
+animation:pulse 2s infinite;
+
+}
+
+#ending h2{
+
+font-size:42px;
+
+margin-top:15px;
+
+}
+
+#ending p{
+
+font-size:24px;
+
+line-height:2;
+
+margin-top:35px;
+
+}
+
+/* Button */
+
+button{
+
+display:block;
+
+margin:60px auto 0;
+
+padding:18px 45px;
+
+font-size:20px;
+
+font-weight:bold;
+
+background:white;
+
+color:#ff2d75;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+transition:.35s;
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+0 0 25px white,
+0 0 45px #ff5d8f;
+
+}
+
+/* Floating Hearts */
+
+.float{
+
+position:fixed;
+
+bottom:-50px;
+
+pointer-events:none;
+
+animation:floatUp linear forwards;
+
+}
+
+@keyframes floatUp{
+
+0%{
+
+transform:translateY(0) rotate(0deg);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh) rotate(360deg);
+
+opacity:0;
+
+}
+
+}
+
+/* Fireworks */
+
+.firework{
+
+position:fixed;
+
+width:8px;
+
+height:8px;
+
+border-radius:50%;
+
+background:white;
+
+animation:explode 1.3s linear forwards;
+
+}
+
+@keyframes explode{
+
+0%{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translate(var(--x),var(--y)) scale(0);
+
+opacity:0;
+
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Intro Screen -->
+<div id="intro">
 
 <h1>❤️ One Last Surprise ❤️</h1>
 
-<h2>For My Mayalu, Shweta Gurung ❤️</h2>
+<p>Mayalu...</p>
+
+<p>I wrote something for you...</p>
+
+</div>
+
+<!-- Floating Hearts -->
+<div id="floating"></div>
+
+<!-- Main Card -->
+<div class="card">
+
+<h1 class="heading">
+💌 A Letter From My Heart
+</h1>
+
+<p id="letter"></p>
+
+<!-- Ending -->
+<div id="ending">
+
+<h1>
+I LOVE YOU ❤️
+</h1>
+
+<h2>
+SHWETA GURUNG
+</h2>
 
 <p>
-Before you leave this little website, I have one final surprise waiting just for you.
-I poured my heart into making this because you mean the world to me.
-I hope this video brings a smile to your face.
-❤️
+
+Happy Girlfriend Day ❤️
+
+<br><br>
+
+Thank you for everything.
+
+<br>
+
+Thank you for choosing me.
+
+<br>
+
+Thank you for being my Mayalu.
+
+<br><br>
+
+Forever Yours,
+
+<br>
+
+❤️ Ranja ❤️
+
 </p>
 
-<video controls autoplay width="100%" style="border-radius:20px;margin-top:25px;box-shadow:0 0 25px rgba(255,255,255,.4);">
-<source src="0729.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-<p style="margin-top:25px;font-size:22px;">
-
-I love you so much, Mayalu. ❤️<br><br>
-
-Happy Girlfriend Day.<br>
-
-Forever Yours,<br>
-
-<b>Ranja ❤️</b>
-
-</p>
+</div>
 
 <button onclick="location.href='home.html'">
+
 🏠 Back Home
+
 </button>
 
 </div>
+
+<!-- Fireworks -->
+<div id="fireworks"></div>
+
+<script>
+
+/* ===========================
+   MUSIC START
+=========================== */
+
+document.addEventListener("click", function () {
+    document.getElementById("music").play();
+}, { once: true });
+
+/* ===========================
+   INTRO FADE
+=========================== */
+
+window.onload = function(){
+
+    setTimeout(function(){
+
+        document.getElementById("intro").style.opacity="0";
+
+        setTimeout(function(){
+
+            document.getElementById("intro").style.display="none";
+
+            startTyping();
+
+        },2000);
+
+    },3500);
+
+}
+
+/* ===========================
+   LOVE LETTER
+=========================== */
+
+const message = `
+
+My Dearest Mayalu ❤️,
+
+Happy Girlfriend Day.
+
+If you're reading this...
+
+that means you've reached the final page of my little surprise.
+
+Everything you've seen today...
+
+every page...
+
+every animation...
+
+every photo...
+
+and every little detail...
+
+was made with only one person in mind.
+
+You. ❤️
+
+Ever since the night we met on
+
+3 July
+
+(approximately १९ असार २०८३)
+
+around 11:00 PM...
+
+my life has slowly become happier.
+
+One of my favorite memories will always be creating the
+
+"Take a Look At My Girlfriend"
+
+edit for you.
+
+Seeing your smile made all the effort worth it.
+
+Mayalu...
+
+Thank you for always making me smile.
+
+Thank you for staying beside me.
+
+Thank you for believing in me.
+
+Thank you for loving me.
+
+You make ordinary days feel special.
+
+You make bad days feel easier.
+
+You make my world brighter.
+
+No matter what happens in life...
+
+I want you to know...
+
+that you'll always have a special place in my heart.
+
+I hope we continue making countless memories together.
+
+I hope we keep laughing at our silly inside jokes.
+
+I hope we continue choosing each other every single day.
+
+And most importantly...
+
+I hope I can keep making you smile.
+
+Because your smile...
+
+is my favorite thing in the world.
+
+I love you more than words could ever explain.
+
+❤️
+
+Forever Yours,
+
+Ranja ❤️
+
+`;
+
+let i = 0;
+
+/* ===========================
+   TYPEWRITER
+=========================== */
+
+function startTyping(){
+
+    type();
+
+}
+
+function type(){
+
+    if(i < message.length){
+
+        document.getElementById("letter").innerHTML += message.charAt(i);
+
+        i++;
+
+        autoScroll();
+
+        setTimeout(type,45);
+
+    }else{
+
+        setTimeout(showEnding,2000);
+
+    }
+
+}
+
+/* ===========================
+   AUTO SCROLL
+=========================== */
+
+function autoScroll(){
+
+    window.scrollTo({
+
+        top:document.body.scrollHeight,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+/* ===========================
+   ENDING PLACEHOLDER
+=========================== */
+
+function showEnding(){
+
+   /* ===========================
+   SHOW ENDING
+=========================== */
+
+function showEnding(){
+
+    // Show final message
+    document.getElementById("ending").style.display="block";
+
+    document.getElementById("ending").scrollIntoView({
+        behavior:"smooth"
+    });
+
+    // Start hearts
+    setInterval(createHeart,180);
+
+    // Start fireworks
+    setInterval(createFirework,1000);
+
+}
+
+/* ===========================
+   FLOATING HEARTS
+=========================== */
+
+const hearts=[
+"❤️",
+"💖",
+"💕",
+"💗",
+"💞",
+"🌹",
+"🌸",
+"✨"
+];
+
+function createHeart(){
+
+    const heart=document.createElement("div");
+
+    heart.className="float";
+
+    heart.innerHTML=
+        hearts[Math.floor(Math.random()*hearts.length)];
+
+    heart.style.left=Math.random()*100+"vw";
+
+    heart.style.fontSize=
+        (20+Math.random()*25)+"px";
+
+    heart.style.animationDuration=
+        (6+Math.random()*4)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function(){
+
+        heart.remove();
+
+    },10000);
+
+}
+
+/* ===========================
+   FIREWORKS
+=========================== */
+
+function createFirework(){
+
+    const x=Math.random()*window.innerWidth;
+    const y=Math.random()*(window.innerHeight/2);
+
+    for(let i=0;i<30;i++){
+
+        const fire=document.createElement("div");
+
+        fire.className="firework";
+
+        fire.style.left=x+"px";
+        fire.style.top=y+"px";
+
+        const angle=Math.random()*360;
+        const distance=60+Math.random()*90;
+
+        fire.style.setProperty(
+            "--x",
+            Math.cos(angle*Math.PI/180)*distance+"px"
+        );
+
+        fire.style.setProperty(
+            "--y",
+            Math.sin(angle*Math.PI/180)*distance+"px"
+        );
+
+        fire.style.background=
+            `hsl(${Math.random()*360},100%,70%)`;
+
+        document.body.appendChild(fire);
+
+        setTimeout(function(){
+
+            fire.remove();
+
+        },1300);
+
+    }
+
+}
+
+/* ===========================
+   EXTRA MAGIC
+=========================== */
+
+// Extra sparkle every second
+
+setInterval(function(){
+
+    const sparkle=document.createElement("div");
+
+    sparkle.className="float";
+
+    sparkle.innerHTML="✨";
+
+    sparkle.style.left=Math.random()*100+"vw";
+
+    sparkle.style.fontSize=
+        (18+Math.random()*20)+"px";
+
+    sparkle.style.animationDuration=
+        (5+Math.random()*4)+"s";
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(function(){
+
+        sparkle.remove();
+
+    },9000);
+
+},800);
+
+}
+
+</script>
+
+</body>
+
+</html>
