@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Girlfriend Day ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff4d88,#ff8fb3,#ffd1e6);
+background-size:400% 400%;
+animation:bgMove 12s infinite alternate;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+100%{background-position:100% 50%;}
+}
+
+.container{
+text-align:center;
+color:white;
+z-index:10;
+animation:fadeIn 2s ease;
+}
+
+h1{
+font-size:4rem;
+text-shadow:0 0 20px rgba(255,255,255,.5);
+animation:pop 2s ease;
+}
+
+p{
+margin-top:20px;
+font-size:1.4rem;
+opacity:0;
+animation:fadeText 2s forwards;
+animation-delay:2s;
+}
+
+.loader{
+margin:40px auto 0;
+width:70px;
+height:70px;
+border:5px solid rgba(255,255,255,.3);
+border-top:5px solid white;
+border-radius:50%;
+animation:spin 1.2s linear infinite;
+}
+
+@keyframes spin{
+100%{transform:rotate(360deg);}
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+@keyframes pop{
+0%{
+transform:scale(.5);
+opacity:0;
+}
+100%{
+transform:scale(1);
+opacity:1;
+}
+}
+
+@keyframes fadeText{
+to{
+opacity:1;
+}
+}
+
+.heart{
+position:absolute;
+bottom:-40px;
+font-size:25px;
+animation:float linear infinite;
+opacity:.8;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>❤️ Happy Girlfriend Day ❤️</h1>
+<p>A little surprise made just for you😘🌹♥...</p>
+<div class="loader"></div>
+</div>
+
+<script>
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=["❤️","💖","💕","💞","💗"][Math.floor(Math.random()*5)];
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*30)+"px";
+
+heart.style.animationDuration=(4+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},9000);
+
+}
+
+setInterval(createHeart,250);
+
+// Change "index.html" to your password page if needed.
+setTimeout(()=>{
+window.location.href="index.html";
+},6000);
+
+</script>
+
+</body>
+</html>

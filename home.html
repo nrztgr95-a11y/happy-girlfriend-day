@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Little World ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#ff5f9e,#ff89b5,#ffc7d9,#ffdff0);
+background-size:400% 400%;
+animation:bgMove 12s ease infinite;
+position:relative;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* Stars */
+
+.star{
+position:absolute;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{
+opacity:.2;
+transform:scale(.7);
+}
+to{
+opacity:1;
+transform:scale(1.3);
+}
+}
+
+/* Floating items */
+
+.float{
+position:absolute;
+bottom:-60px;
+animation:floatUp linear forwards;
+pointer-events:none;
+}
+
+@keyframes floatUp{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+}
+
+/* Main Card */
+
+.card{
+width:90%;
+max-width:560px;
+padding:45px;
+border-radius:30px;
+text-align:center;
+background:rgba(255,255,255,.18);
+backdrop-filter:blur(18px);
+box-shadow:0 0 40px rgba(255,255,255,.25);
+color:white;
+animation:appear 1.5s ease;
+z-index:10;
+}
+
+@keyframes appear{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+h1{
+font-size:50px;
+margin-bottom:20px;
+text-shadow:
+0 0 10px white,
+0 0 20px #ff7aa8,
+0 0 40px #ff2d75;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.04);
+}
+}
+
+#typing{
+min-height:70px;
+font-size:20px;
+line-height:1.6;
+margin-bottom:30px;
+}
+
+button{
+width:100%;
+padding:18px;
+margin:12px 0;
+border:none;
+border-radius:50px;
+font-size:20px;
+font-weight:bold;
+cursor:pointer;
+color:white;
+background:rgba(255,255,255,.2);
+border:2px solid rgba(255,255,255,.5);
+backdrop-filter:blur(10px);
+transition:.35s;
+}
+
+button:hover{
+transform:translateY(-8px) scale(1.04);
+box-shadow:
+0 0 15px white,
+0 0 35px #ff7aa8,
+0 0 60px #ff2d75;
+}
+
+.footer{
+margin-top:25px;
+font-size:15px;
+opacity:.9;
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+<source src="music.mp3.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+
+<h1>❤️ My Princess ❤️</h1>
+
+<p id="typing"></p>
+
+<button onclick="location.href='love-letter.html'">
+💌 Love Letter
+</button>
+
+<button onclick="location.href='gallery.html'">
+📸 Gallery
+</button>
+
+<button onclick="location.href='final-surprise.html'">
+🎁 Final Surprise
+</button>
+
+<div class="footer">
+Made with endless love ❤️
+</div>
+
+</div>
+
+<script>
+
+/* ---------- Typewriter ---------- */
+
+const message =
+"Welcome, my love. Every page here holds a little piece of my heart. I hope this small surprise makes you smile just as you make me smile every single day. ❤️";
+
+let i=0;
+
+function type(){
+
+if(i<message.length){
+
+document.getElementById("typing").innerHTML+=message.charAt(i);
+
+i++;
+
+setTimeout(type,45);
+
+}
+
+}
+
+type();
+
+/* ---------- Stars ---------- */
+
+for(let i=0;i<120;i++){
+
+const star=document.createElement("div");
+
+star.className="star";
+
+let size=Math.random()*3+1;
+
+star.style.width=size+"px";
+
+star.style.height=size+"px";
+
+star.style.left=Math.random()*100+"vw";
+
+star.style.top=Math.random()*100+"vh";
+
+star.style.animationDuration=(1+Math.random()*3)+"s";
+
+document.body.appendChild(star);
+
+}
+
+/* ---------- Floating Roses Hearts ---------- */
+
+const emojis=["❤️","💖","💕","💞","🌹","🌸","✨"];
+
+function floating(){
+
+const e=document.createElement("div");
+
+e.className="float";
+
+e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+
+e.style.left=Math.random()*100+"vw";
+
+e.style.fontSize=(20+Math.random()*25)+"px";
+
+e.style.animationDuration=(6+Math.random()*5)+"s";
+
+document.body.appendChild(e);
+
+setTimeout(()=>{
+
+e.remove();
+
+},12000);
+
+}
+
+setInterval(floating,220);
+
+</script>
+
+</body>
+</html>

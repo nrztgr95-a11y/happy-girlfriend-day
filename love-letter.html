@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Letter ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#ff8fb3,#ff5d8f,#ffc4d6,#ffe5ef);
+background-size:400% 400%;
+animation:bg 12s infinite alternate;
+}
+
+@keyframes bg{
+0%{background-position:left;}
+100%{background-position:right;}
+}
+
+.card{
+width:90%;
+max-width:800px;
+max-height:85vh;
+overflow-y:auto;
+background:rgba(255,255,255,.18);
+backdrop-filter:blur(18px);
+padding:45px;
+border-radius:30px;
+box-shadow:0 0 30px rgba(255,255,255,.25);
+color:white;
+animation:fade 1.5s ease;
+z-index:5;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+h1{
+font-family:'Dancing Script',cursive;
+font-size:60px;
+text-align:center;
+margin-bottom:25px;
+text-shadow:0 0 15px white;
+}
+
+p{
+font-size:19px;
+line-height:1.9;
+text-align:justify;
+}
+
+.signature{
+margin-top:35px;
+text-align:right;
+font-family:'Dancing Script',cursive;
+font-size:38px;
+}
+
+button{
+margin-top:30px;
+padding:15px 35px;
+border:none;
+border-radius:40px;
+background:white;
+color:#ff2d75;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.float{
+position:absolute;
+bottom:-40px;
+animation:up linear forwards;
+pointer-events:none;
+}
+
+@keyframes up{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>To My Mayalu ❤️</h1>
+
+<p>
+
+Happy Girlfriend Day, my dearest <b>Shweta Gurung</b>. ❤️
+
+Today is all about celebrating you and reminding you how thankful I am to have someone as wonderful as you in my life. Ever since the night we met on <b>3 July</b> (approximately <b>१९ असार २०८३ B.S.</b>) around <b>11:00 PM</b>, my life has slowly become brighter and happier. I never imagined that one person could mean so much to me, but here you are, making every ordinary day feel special.
+
+One of my favorite memories will always be the time I made the <b>"Take a Look at My Girlfriend"</b> edit. Seeing you smile after watching it made me happier than you could ever imagine. That moment will always have a special place in my heart.
+
+Mayalu, thank you for your love, your care, your patience, and for always being yourself. We have so many inside jokes that only we understand, and those little moments make our relationship even more beautiful. Every laugh we share and every conversation we have becomes another memory I'll always treasure.
+
+No matter what life brings, I want you to know that I'll always appreciate you, respect you, and do my best to make you smile. Thank you for being my safe place, my happiness, and my favorite person.
+
+I love you more than words can ever describe.
+
+Happy Girlfriend Day, my beautiful Mayalu. ❤️
+
+</p>
+
+<div class="signature">
+Forever Yours,<br>
+❤️ Ranja
+</div>
+
+<center>
+
+<button onclick="location.href='home.html'">
+🏠 Back Home
+</button>
+
+</center>
+
+</div>
+</p>
+
+<div class="signature">
+Always yours,<br>
+❤️ Ranja, Forever
+</div>
+
+<center>
+<button onclick="location.href='home.html'">
+🏠 Back Home
+</button>
+</center>
+
+</div>
+
+<script>
+
+const items=["❤️","💖","💕","💞","🌹","🌸","✨"];
+
+function create(){
+
+const e=document.createElement("div");
+
+e.className="float";
+
+e.innerHTML=items[Math.floor(Math.random()*items.length)];
+
+e.style.left=Math.random()*100+"vw";
+
+e.style.fontSize=(20+Math.random()*25)+"px";
+
+e.style.animationDuration=(6+Math.random()*5)+"s";
+
+document.body.appendChild(e);
+
+setTimeout(()=>{
+e.remove();
+},12000);
+
+}
+
+setInterval(create,250);
+
+</script>
+
+</body>
+</html>
